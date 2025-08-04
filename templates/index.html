@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Control Panel</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function toggleExportOptions(show) {
+            document.getElementById('export-container').style.display = show ? 'flex' : 'none';
+        }
+
+        function startKeylogger() {
+            fetch('/start')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        toggleExportOptions(false);
+                    }
+                });
+        }
+
+        function stopKeylogger() {
+            fetch('/stop')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        toggleExportOptions(true);
+                    }
+                });
+        }
+
+        function clearLogs() {
+            fetch('/clear_logs')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Logs cleared successfully.');
+                    } else {
+                        alert('Failed to clear logs.');
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Keylogger Control Panel</h1>
+        <div class="button-container">
+            <button class="control-button start-button" onclick="startKeylogger()">Start Keylogger</button>
+            <button class="control-button stop-button" onclick="stopKeylogger()">Stop Keylogger</button>
+            <button class="control-button clear-button" onclick="clearLogs()">Clear Logs</button>
+        </div>
+        <div id="export-container" class="download-container" style="display: none;">
+            <button class="control-button export-button" onclick="window.location.href='/export'">Export Logs</button>
+            <a href="/download_pdf" class="download-button pdf-button">Download PDF</a>
+            <a href="/download_word" class="download-button word-button">Download Word</a>
+        </div>
+    </div>
+</body>
+</html>

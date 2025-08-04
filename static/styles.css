@@ -1,0 +1,107 @@
+/* static/styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff6b6b, #f3a683, #ffcc66, #78e08f, #3dc1d3, #546de5, #c44569);
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.download-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.control-button, .download-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    flex: 1 1 calc(50% - 30px);
+}
+
+.control-button:hover, .download-button:hover {
+    transform: translateY(-3px);
+}
+
+.start-button {
+    background-color: #28a745;
+}
+
+.start-button:hover {
+    background-color: #218838;
+}
+
+.stop-button {
+    background-color: #dc3545;
+}
+
+.stop-button:hover {
+    background-color: #c82333;
+}
+
+.export-button {
+    background-color: #17a2b8;
+}
+
+.export-button:hover {
+    background-color: #138496;
+}
+
+.pdf-button {
+    background-color: #ff4757;
+}
+
+.pdf-button:hover {
+    background-color: #e84118;
+}
+
+.word-button {
+    background-color: #1e90ff;
+}
+
+.word-button:hover {
+    background-color: #1c74d9;
+}
